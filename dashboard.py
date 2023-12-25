@@ -217,7 +217,7 @@ plt.pie(
 plt.legend(labels = label)
 plt.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
-st.pyplot()
+st.pyplot(fig)
 
 plt.subplot(figsize = (10, 5))
 plt.plot(
@@ -238,7 +238,7 @@ plt.legend()
 plt.set_xticklabels(rotation = 60)
 plt.set_title("Total Number of User by Month (2011-2012)", loc = "left", fontsize = 18)
 
-st.pyplot()
+st.pyplot(fig)
 
 # Question 2
 st.subheader('Weather and User Relationship')
@@ -254,7 +254,7 @@ sns.barplot(
 plt.title("Average Number of User by Season", loc = "left", fontsize = 18)
 plt.xlabel(None)
 plt.ylabel(None)
-st.pyplot()
+st.pyplot(fig)
 
 plt.figure(figsize = (10, 5))
 
@@ -267,7 +267,7 @@ sns.barplot(
 plt.title("Average Number of User by Weather Situation", loc = "left", fontsize = 18)
 plt.xlabel(None)
 plt.ylabel(None)
-st.pyplot()
+st.pyplot(fig)
 
 plt.figure(figsize = (10, 5))
 sns.barplot(
@@ -279,7 +279,7 @@ sns.barplot(
 plt.ylabel(None)
 plt.xlabel("Temperature in Celcius (°C)", fontsize = 12)
 plt.title("Average Number of Biker by Feels-Like Temperature", loc = "left", fontsize = 16)
-st.pyplot()
+st.pyplot(fig)
 
 fig , ax = plt.subplots(nrows = 2, ncols = 1, figsize = (15, 10))
 sns.barplot(
@@ -316,7 +316,7 @@ ax[1].legend()
 ax[1].set_title("Total Number of Users by Month (2011-2012)", loc = "left", fontsize = 18)
 
 plt.suptitle("Relationship between Feels-Like Temperature and Total Number of User by Month", fontsize = 20)
-st.pyplot()
+st.pyplot(fig)
 
 
 # Question 3
@@ -341,7 +341,7 @@ plt.legend()
 plt.xticks(range(0,24))
 plt.xlabel("Hours")
 plt.title("Average Number of User by Hours", loc = "left", fontsize = 18)
-st.pyplot()
+st.pyplot(fig)
 
 plt.figure(figsize = (10, 5))
 sns.barplot(
@@ -362,7 +362,7 @@ sns.barplot(
 )
 plt.legend()
 plt.title("Average Number of User by Week", loc = "left", fontsize = 18)
-st.pyplot()
+st.pyplot(fig)
 
 plt.figure(figsize = (5, 8))
 color = ["#000080", "#32CD32"]
@@ -377,7 +377,7 @@ plt.xlabel("Working Day")
 plt.ylabel(None)
 plt.title("Average Number of User During Working Day", loc = "left", fontsize = 15)
 plt.yticks(np.arange(0, 4500, 500))
-st.pyplot()
+st.pyplot(fig)
 
 plt.figure(figsize = (5, 8))
 sns.barplot(
@@ -391,7 +391,7 @@ plt.xlabel("Holiday")
 plt.ylabel(None)
 plt.title("Average Number of User During Weekend", loc = "left", fontsize = 15)
 plt.yticks(np.arange(0, 4500, 500))
-st.pyplot()
+st.pyplot(fig)
 
 plt.figure(figsize = (5, 8))
 sns.barplot(
@@ -405,4 +405,4 @@ plt.xlabel("Holiday")
 plt.ylabel(None)
 plt.title("Average Number of User During Holiday", loc = "left", fontsize = 15)
 plt.yticks(np.arange(0, 4500, 500))
-st.pyplot()
+st.pyplot(fig)
