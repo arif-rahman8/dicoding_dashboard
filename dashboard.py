@@ -217,7 +217,7 @@ plt.pie(
 plt.legend(labels = label)
 plt.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
-st.pyplot(fig)
+st.pyplot()
 
 plt.subplot(figsize = (10, 5))
 plt.plot(
@@ -238,7 +238,7 @@ plt.legend()
 plt.set_xticklabels(rotation = 60)
 plt.set_title("Total Number of User by Month (2011-2012)", loc = "left", fontsize = 18)
 
-st.pyplot(fig)
+st.pyplot()
 
 # Question 2
 st.subheader('Weather and User Relationship')
