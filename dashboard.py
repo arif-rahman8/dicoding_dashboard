@@ -204,6 +204,7 @@ ax.pie(
     radius = 0.9,
     pctdistance= 1.2,
 )
+ax.legend(labels = ["Casual", "Registered"])
 st.pyplot(fig)
 
 fig, ax = plt.subplots(figsize = (15, 5))
