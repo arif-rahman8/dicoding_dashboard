@@ -209,8 +209,7 @@ ax.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
 st.pyplot(ax)
 
-fig, ax = plt.subplots(figsize = (10, 5))
-ax.figure(figsize = (15, 5))
+fig, ax = plt.subplots(figsize = (15, 5))
 ax.plot(
     monthly_df_daily["period"],
     monthly_df_daily["registered"],
@@ -229,7 +228,7 @@ ax.legend()
 ax.set_xticklabels(rotation = 60)
 ax.set_title("Total Number of User by Month (2011-2012)", loc = "left", fontsize = 18)
 
-st.pyplot(fig)
+st.pyplot(ax)
 
 # Question 2
 st.subheader('Weather and User Relationship')
