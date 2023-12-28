@@ -233,7 +233,7 @@ with col2:
     ax.set_xticklabels(monthly_df_daily["period"], rotation = 60)
     st.pyplot(fig)
 
-st.text('Berdasarkan data dan visualisasi, dapat dilihat bahwa jumlah pengguna sepeda rental yang berlangganan mendominasi sebesar > 80% pada visualisasi pie chart. Lalu, dari line chart berjudul "Total Number of User by Month (2011-2012)" tren jumlah pengguna sepeda rental yang berlangganan cenderung meningkat dari tahun ke tahun, namun ada bulan-bulan tertentu dimana pengguna sepeda rental berlangganan mengalami penurunan, yaitu di bulan November - Januari, yang dimana akan dilakukan analisis pada pertanyaan kedua. Apabila kita melihat tren pengguna sepeda rental casual, tidak terlihat tren peningkatan pengguna yang signifikan, namun polanya mirip dengan pengguna sepeda berlangganan, mengalami penurunan pada bulan tertentu, yaitu November-Januari.')
+st.markdown('Berdasarkan data dan visualisasi, dapat dilihat bahwa jumlah pengguna sepeda rental yang berlangganan mendominasi sebesar > 80% pada visualisasi pie chart. Lalu, dari line chart berjudul "Total Number of User by Month (2011-2012)" tren jumlah pengguna sepeda rental yang berlangganan cenderung meningkat dari tahun ke tahun, namun ada bulan-bulan tertentu dimana pengguna sepeda rental berlangganan mengalami penurunan, yaitu di bulan November - Januari, yang dimana akan dilakukan analisis pada pertanyaan kedua. Apabila kita melihat tren pengguna sepeda rental casual, tidak terlihat tren peningkatan pengguna yang signifikan, namun polanya mirip dengan pengguna sepeda berlangganan, mengalami penurunan pada bulan tertentu, yaitu November-Januari.')
 
 # Question 2
 st.subheader('Weather and User Relationship')
@@ -316,7 +316,7 @@ ax[1].set_title("Total Number of Users by Month (2011-2012)", loc = "left", font
 fig.tight_layout()
 st.pyplot(fig)
 
-st.text('Dari data dan visualisasi yang telah dibuat, cuaca cukup mempengaruhi aktivitas penggunaan sepeda rental. Misal, pada visualisasi berjudul "Average Number of User by Weather Situation", rata-rata pengguna masih merental sepeda dalam kondisi cuaca yang cerah atau berawan. Namun, pengguna sepeda turun cukup drastis ketika cuaca sudah mulai hujan atau bersalju ringan. Ketika sudah hujan atau bersalju lebat, tidak ada pengguna sepeda rental sama sekali. Selain itu, suhu juga mempengaruhi penggunaan sepeda rental. Pada visualisasi berjudul "Average Number of Biker by Feels-Like Temperature", Rata-rata pengguna sepeda rental tertinggi jatuh pada suhu sekitar 25 hingga 35 derajat celcius. Lalu, apabila suhu sudah diluar rentang tersebut, terjadi penurunan pengguna sepeda rental. Pertanyaan ini juga akan menjawab alasan mengapa terjadi penurunan pengguna sepeda pada bulan tertentu pada pertanyaan pertama di visualisasi berjudul "Relationship between Feels-Like Temperature and Total Number of User by Month". Apabila dibuat visualisasi antara besaran suhu dengan bulan, dapat terlihat pola yang mirip, pada bulan november hingga januari, terjadi penurunan suhu, sama halnya dengan pengguna sepeda rental. Ini berarti bahwa suhu mempengaruhi penggunaan sepeda rental.')
+st.markdown('Dari data dan visualisasi yang telah dibuat, cuaca cukup mempengaruhi aktivitas penggunaan sepeda rental. Misal, pada visualisasi berjudul "Average Number of User by Weather Situation", rata-rata pengguna masih merental sepeda dalam kondisi cuaca yang cerah atau berawan. Namun, pengguna sepeda turun cukup drastis ketika cuaca sudah mulai hujan atau bersalju ringan. Ketika sudah hujan atau bersalju lebat, tidak ada pengguna sepeda rental sama sekali. Selain itu, suhu juga mempengaruhi penggunaan sepeda rental. Pada visualisasi berjudul "Average Number of Biker by Feels-Like Temperature", Rata-rata pengguna sepeda rental tertinggi jatuh pada suhu sekitar 25 hingga 35 derajat celcius. Lalu, apabila suhu sudah diluar rentang tersebut, terjadi penurunan pengguna sepeda rental. Pertanyaan ini juga akan menjawab alasan mengapa terjadi penurunan pengguna sepeda pada bulan tertentu pada pertanyaan pertama di visualisasi berjudul "Relationship between Feels-Like Temperature and Total Number of User by Month". Apabila dibuat visualisasi antara besaran suhu dengan bulan, dapat terlihat pola yang mirip, pada bulan november hingga januari, terjadi penurunan suhu, sama halnya dengan pengguna sepeda rental. Ini berarti bahwa suhu mempengaruhi penggunaan sepeda rental.')
 
 # Question 3
 st.subheader('User and Time Relationship')
@@ -337,7 +337,6 @@ sns.barplot(
     color = "navy"
 )
 ax.legend()
-ax.set_xticks(range(0,24))
 ax.set_xlabel("Hours")
 ax.set_ylabel(None)
 ax.set_title("Average Number of User by Hours", loc = "left", fontsize = 18)
@@ -366,7 +365,7 @@ ax.set_ylabel(None)
 ax.set_title("Average Number of User by Week", loc = "left", fontsize = 18)
 st.pyplot(fig)
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
     fig, ax = plt.subplots(figsize = (5, 8))
@@ -413,4 +412,5 @@ with col3:
     ax.set_title("Average Number of User During Holiday", loc = "left", fontsize = 15)
     ax.set_yticks(np.arange(0, 4500, 500))
     st.pyplot(fig)
-    
+
+st.markdown('Rata-rata pengguna sepeda rental antara casual dengan berlangganan memiliki pola yang berbeda. Berdasarkan visualisasi berjudul "Average Number of User by Hours", Penggunaan sepeda pada pengguna berlangganan mengalami puncak penggunaan sepeda pada jam 8 dan jam 17-18, hal ini kemungkinan karena jam-jam tersebut merupakan rush hour, dimana orang-orang pulang dan pergi dari tempat kerja. Hal ini juga menunjukkan bahwa mayoritas pengguna sepeda rental langganan merupakan pekerja kantor, namun hal ini perlu dilakukan analisis lebih lanjut dengan data tambahan demografi pengguna sepeda rental. Lalu pengguna sepeda casual tidak mengalami puncak penggunaan sepeda seperti pengguna langganan, hanya saja pengguna sepeda casual cenderung lebih banyak pada jam-jam masih terang, yaitu jam 10 hingga jam 18. Lalu berdasarkan visualisasi berjudul "Average Number of User by Week", dapat dilihat bahwa pengguna sepeda antara casual dengan registered memiliki pola yang berbeda pula, walaupun pengguna sepeda berlangganan selalu lebih banyak daripada pengguna sepeda casual. Pengguna sepeda casual mengalami pola peningkatan penggunaan sepeda pada akhir pekan (weekend), sedangkan pengguna berlangganan mengalami penurunan pada akhir pekan, namun mengalami peningkatan pada hari-hari kerja (Senin-Jumat). Hal ini juga memberikan petunjuk bahwa pengguna sepeda berlangganan merupakan pekerja kantoran, namun sekali lagi perlu analisis lebih lanjut. Hal ini juga didukung pada visualisasi berjudul "Average Number of User During Working Day", bahwa pada hari kerja terjadi kesenjangan jauh antara pengguna sepeda rental casual dengan langganan. Pada visualisasi lain seperti "Average Number of User During Weekend" dan "Average Number of User During Holiday", pengguna sepeda casual mengalami peningkatan, sedangkan pengguna sepeda langganan mengalami penurunan. Dari sini juga didapat bahwa pengguna sepeda casual merupakan pengguna sepeda yang hanya ingin menggunakan sepeda untuk rekreasi pada hari libur maupun akhir pekan, sedangkan pengguna sepeda berlangganan menggunakan sepeda untuk bepergian kerja.')
