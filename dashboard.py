@@ -207,7 +207,7 @@ ax.pie(
 ax.legend(labels = ["Casual", "Registered"])
 ax.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
-st.pyplot(fig)
+st.pyplot(ax)
 
 fig, ax = plt.subplots(figsize = (10, 5))
 ax.figure(figsize = (15, 5))
