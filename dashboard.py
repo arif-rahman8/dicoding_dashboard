@@ -153,6 +153,7 @@ def create_monthly_atemp_df(df):
     return monthly_atemp_df
 
 # Read CSV File
+df_daily = pd.read_csv("df_daily.csv")
 df_hourly = pd.read_csv("df_hourly.csv")
 
 # Filter
@@ -174,20 +175,22 @@ with st.sidebar:
         value=[min_date, max_date]
     )
 
-main_df = df_hourly[(df_hourly["dteday"] >= str(start_date)) &
+main_df_hourly = df_hourly[(df_hourly["dteday"] >= str(start_date)) &
                 (df_hourly["dteday"] <= str(end_date))]
+main_df_daily = df_daily[(df_daily["dteday"] >= str(start_date)) &
+                (df_daily["dteday"] <= str(end_date))]
 
 # Call DataFrame
 
-atemp_df_daily = create_atemp_df_daily(main_df)
-season_df_daily = create_season_df_daily(main_df)
-weathersit_df_daily = create_weathersit_df_daily(main_df)
-user = create_user(main_df)
-user_df_hourly = create_user_df_hourly(main_df)
-weekly_df_daily = create_weekly_df_daily(main_df)
-week_merged_df = create_week_merged_df(main_df)
-monthly_df_daily = create_monthly_df_daily(main_df)
-monthly_atemp_df = create_monthly_atemp_df(main_df)
+atemp_df_daily = create_atemp_df_daily(main_df_daily)
+season_df_daily = create_season_df_daily(main_df_daily)
+weathersit_df_daily = create_weathersit_df_daily(main_df_daily)
+user = create_user(main_df_daily)
+user_df_hourly = create_user_df_hourly(main_df_hourly)
+weekly_df_daily = create_weekly_df_daily(main_df_daily)
+week_merged_df = create_week_merged_df(main_df_daily)
+monthly_df_daily = create_monthly_df_daily(main_df_daily)
+monthly_atemp_df = create_monthly_atemp_df(main_df_daily)
 
 # Create Dashboard
 
@@ -230,7 +233,7 @@ with col2:
     ax.set_xticklabels(monthly_df_daily["period"], rotation = 60)
     st.pyplot(fig)
 
-st.markdown('''Berdasarkan data dan visualisasi, dapat dilihat bahwa jumlah pengguna sepeda rental yang berlangganan mendominasi sebesar > 80% pada visualisasi pie chart. Lalu, dari line chart berjudul "Total Number of User by Month (2011-2012)" tren jumlah pengguna sepeda rental yang berlangganan cenderung meningkat dari tahun ke tahun, namun ada bulan-bulan tertentu dimana pengguna sepeda rental berlangganan mengalami penurunan, yaitu di bulan November - Januari, yang dimana akan dilakukan analisis pada pertanyaan kedua. Apabila kita melihat tren pengguna sepeda rental casual, tidak terlihat tren peningkatan pengguna yang signifikan, namun polanya mirip dengan pengguna sepeda berlangganan, mengalami penurunan pada bulan tertentu, yaitu November-Januari.''')
+st.text('Berdasarkan data dan visualisasi, dapat dilihat bahwa jumlah pengguna sepeda rental yang berlangganan mendominasi sebesar > 80% pada visualisasi pie chart. Lalu, dari line chart berjudul "Total Number of User by Month (2011-2012)" tren jumlah pengguna sepeda rental yang berlangganan cenderung meningkat dari tahun ke tahun, namun ada bulan-bulan tertentu dimana pengguna sepeda rental berlangganan mengalami penurunan, yaitu di bulan November - Januari, yang dimana akan dilakukan analisis pada pertanyaan kedua. Apabila kita melihat tren pengguna sepeda rental casual, tidak terlihat tren peningkatan pengguna yang signifikan, namun polanya mirip dengan pengguna sepeda berlangganan, mengalami penurunan pada bulan tertentu, yaitu November-Januari.')
 
 # Question 2
 st.subheader('Weather and User Relationship')
@@ -288,7 +291,7 @@ sns.barplot(
 ax[0].set_xticklabels(monthly_atemp_df["period"], rotation = 60)
 ax[0].set_ylabel(None)
 ax[0].set_xlabel(None)
-ax[0].set_title("Averge Feels-Like Temperature by Month (2011-2012)", loc = "left", fontsize = 18)
+ax[0].set_title("Average Feels-Like Temperature by Month (2011-2012)", loc = "left", fontsize = 18)
 
 plt.plot(
     monthly_df_daily["period"],
@@ -311,10 +314,9 @@ ax[1].legend()
 ax[1].set_title("Total Number of Users by Month (2011-2012)", loc = "left", fontsize = 18)
 
 fig.tight_layout()
-plt.suptitle("Relationship between Feels-Like Temperature and Total Number of User by Month", fontsize = 20)
 st.pyplot(fig)
 
-st.markdown('''Dari data dan visualisasi yang telah dibuat, cuaca cukup mempengaruhi aktivitas penggunaan sepeda rental. Misal, pada visualisasi berjudul "Average Number of User by Weather Situation", rata-rata pengguna masih merental sepeda dalam kondisi cuaca yang cerah atau berawan. Namun, pengguna sepeda turun cukup drastis ketika cuaca sudah mulai hujan atau bersalju ringan. Ketika sudah hujan atau bersalju lebat, tidak ada pengguna sepeda rental sama sekali. Selain itu, suhu juga mempengaruhi penggunaan sepeda rental. Pada visualisasi berjudul "Average Number of Biker by Feels-Like Temperature", Rata-rata pengguna sepeda rental tertinggi jatuh pada suhu sekitar 25 hingga 35 derajat celcius. Lalu, apabila suhu sudah diluar rentang tersebut, terjadi penurunan pengguna sepeda rental. Pertanyaan ini juga akan menjawab alasan mengapa terjadi penurunan pengguna sepeda pada bulan tertentu pada pertanyaan pertama di visualisasi berjudul "Relationship between Feels-Like Temperature and Total Number of User by Month". Apabila dibuat visualisasi antara besaran suhu dengan bulan, dapat terlihat pola yang mirip, pada bulan november hingga januari, terjadi penurunan suhu, sama halnya dengan pengguna sepeda rental. Ini berarti bahwa suhu mempengaruhi penggunaan sepeda rental.''')
+st.text('Dari data dan visualisasi yang telah dibuat, cuaca cukup mempengaruhi aktivitas penggunaan sepeda rental. Misal, pada visualisasi berjudul "Average Number of User by Weather Situation", rata-rata pengguna masih merental sepeda dalam kondisi cuaca yang cerah atau berawan. Namun, pengguna sepeda turun cukup drastis ketika cuaca sudah mulai hujan atau bersalju ringan. Ketika sudah hujan atau bersalju lebat, tidak ada pengguna sepeda rental sama sekali. Selain itu, suhu juga mempengaruhi penggunaan sepeda rental. Pada visualisasi berjudul "Average Number of Biker by Feels-Like Temperature", Rata-rata pengguna sepeda rental tertinggi jatuh pada suhu sekitar 25 hingga 35 derajat celcius. Lalu, apabila suhu sudah diluar rentang tersebut, terjadi penurunan pengguna sepeda rental. Pertanyaan ini juga akan menjawab alasan mengapa terjadi penurunan pengguna sepeda pada bulan tertentu pada pertanyaan pertama di visualisasi berjudul "Relationship between Feels-Like Temperature and Total Number of User by Month". Apabila dibuat visualisasi antara besaran suhu dengan bulan, dapat terlihat pola yang mirip, pada bulan november hingga januari, terjadi penurunan suhu, sama halnya dengan pengguna sepeda rental. Ini berarti bahwa suhu mempengaruhi penggunaan sepeda rental.')
 
 # Question 3
 st.subheader('User and Time Relationship')
@@ -337,6 +339,7 @@ sns.barplot(
 ax.legend()
 ax.set_xticks(range(0,24))
 ax.set_xlabel("Hours")
+ax.set_ylabel(None)
 ax.set_title("Average Number of User by Hours", loc = "left", fontsize = 18)
 st.pyplot(fig)
 
@@ -358,6 +361,8 @@ sns.barplot(
     width = 0.5
 )
 ax.legend()
+ax.set_xlabel(None)
+ax.set_ylabel(None)
 ax.set_title("Average Number of User by Week", loc = "left", fontsize = 18)
 st.pyplot(fig)
 
