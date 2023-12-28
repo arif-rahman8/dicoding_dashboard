@@ -199,7 +199,7 @@ st.subheader('User: Casual vs Registered')
 col1, col2 = st.columns(2)
 
 with col1:
-    fig, ax = plt.subplots(figsize = (10, 5))
+    fig, ax = plt.subplots(figsize = (7, 5))
     ax.pie(
         user,
         autopct='%1.1f%%',
@@ -211,7 +211,7 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    fig, ax = plt.subplots(figsize = (15, 5))
+    fig, ax = plt.subplots(figsize = (20, 5))
     ax.plot(
         monthly_df_daily["period"],
         monthly_df_daily["registered"],
