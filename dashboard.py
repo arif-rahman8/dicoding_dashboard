@@ -203,18 +203,15 @@ st.header("Bike Sharing Rental Analysis Dashboard")
 # Question 1
 st.subheader('User: Casual vs Registered')
 
-label = ["Casual", "Registered"]
-color = ["#000080", "#32CD32"]
-
 fig, ax = plt.subplots(figsize = (10, 5))
 ax.pie(
     user,
     autopct='%1.1f%%',
-    colors = color,
+    colors = ["#000080", "#32CD32"],
     radius = 0.9,
     pctdistance= 1.2,
 )
-ax.legend(labels = label)
+ax.legend(labels = ["Casual", "Registered"])
 ax.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
 st.pyplot(fig)
