@@ -206,37 +206,38 @@ st.subheader('User: Casual vs Registered')
 label = ["Casual", "Registered"]
 color = ["#000080", "#32CD32"]
 
-plt.figure(figsize = (10, 5))
-plt.pie(
+fig , ax = plt.subplot(figsize = (10, 5))
+ax.pie(
     user,
     autopct='%1.1f%%',
     colors = color,
     radius = 0.9,
     pctdistance= 1.2,
 )
-plt.legend(labels = label)
-plt.title("Casual vs Registered", loc = 'center', fontsize = 18)
+ax.legend(labels = label)
+ax.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
 st.pyplot(fig)
 
-plt.subplot(figsize = (10, 5))
-plt.plot(
+fig , ax = plt.subplot(figsize = (10, 5))
+ax.figure(figsize = (15, 5))
+ax.plot(
     monthly_df_daily["period"],
     monthly_df_daily["registered"],
     marker = ".",
     label = "Registered",
     color = "limegreen"
 )
-plt.plot(
+ax.plot(
     monthly_df_daily["period"],
     monthly_df_daily["casual"],
     marker = ".",
     label = "Casual",
     color = "navy"
 )
-plt.legend()
-plt.set_xticklabels(rotation = 60)
-plt.set_title("Total Number of User by Month (2011-2012)", loc = "left", fontsize = 18)
+ax.legend()
+ax.set_xticklabels(rotation = 60)
+ax.set_title("Total Number of User by Month (2011-2012)", loc = "left", fontsize = 18)
 
 st.pyplot(fig)
 
