@@ -338,6 +338,7 @@ sns.barplot(
 )
 ax.legend()
 ax.set_xlabel("Hours")
+ax.set_xticklabels(range(0,24))
 ax.set_ylabel(None)
 ax.set_title("Average Number of User by Hours", loc = "left", fontsize = 18)
 st.pyplot(fig)
