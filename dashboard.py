@@ -13,7 +13,6 @@ def create_atemp_df_daily(df):
         bins=[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
         labels=['0-5', '5-10', '10-15', '15-20', '20-25', '25-30', '30-35', '35-40', '40-45', '45-50']
     )
-
     atemp_df_daily = df.groupby(by="atemp_group", as_index=False).agg({
         "casual": "mean",
         "registered": "mean",
@@ -89,14 +88,12 @@ def create_week_merged_df(df):
     })
     holiday_df_T = holiday_df.transpose().reset_index()
     holiday_df_T.columns = ["status", "normal", "holiday"]
-
     workingday_df = df.groupby(by="workingday").agg({
         "casual": "mean",
         "registered": "mean",
     })
     workingday_df_T = workingday_df.transpose().reset_index()
     workingday_df_T.columns = ["status", "weekend", "working_day"]
-
     week_merged_df = pd.merge(
         left=holiday_df_T,
         right=workingday_df_T,
@@ -113,7 +110,6 @@ def create_monthly_df_daily(df):
         "registered": "sum",
         "cnt": "sum"
     }).reset_index()
-
     monthly_df_daily.mnth.replace(1, "January", inplace=True)
     monthly_df_daily.mnth.replace(2, "February", inplace=True)
     monthly_df_daily.mnth.replace(3, "March", inplace=True)
@@ -128,7 +124,6 @@ def create_monthly_df_daily(df):
     monthly_df_daily.mnth.replace(12, "December", inplace=True)
     monthly_df_daily.yr.replace(2011, "11", inplace=True)
     monthly_df_daily.yr.replace(2012, "12", inplace=True)
-
     monthly_df_daily["period"] = monthly_df_daily[["mnth", "yr"]].astype(str).apply(" '".join, axis=1)
 
     return monthly_df_daily
@@ -139,7 +134,6 @@ def create_monthly_atemp_df(df):
     }).reset_index()
     atemp_unorm = monthly_atemp_df["atemp"].apply(lambda x: x * 50)
     monthly_atemp_df["atemp"] = atemp_unorm
-
     monthly_atemp_df.mnth.replace(1, "January", inplace=True)
     monthly_atemp_df.mnth.replace(2, "February", inplace=True)
     monthly_atemp_df.mnth.replace(3, "March", inplace=True)
@@ -154,7 +148,6 @@ def create_monthly_atemp_df(df):
     monthly_atemp_df.mnth.replace(12, "December", inplace=True)
     monthly_atemp_df.yr.replace(2011, "11", inplace=True)
     monthly_atemp_df.yr.replace(2012, "12", inplace=True)
-
     monthly_atemp_df["period"] = monthly_atemp_df[["mnth", "yr"]].astype(str).apply(" '".join, axis=1)
 
     return monthly_atemp_df
