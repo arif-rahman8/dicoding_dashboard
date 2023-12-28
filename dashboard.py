@@ -196,37 +196,33 @@ st.header("Bike Sharing Rental Analysis Dashboard")
 # Question 1
 st.subheader('User: Casual vs Registered')
 
-col1, col2 = st.columns(2)
+fig, ax = plt.subplots(figsize = (10, 5))
+ax.pie(
+    user,
+    autopct='%1.1f%%',
+    colors = ["#000080", "#32CD32"],
+    radius = 0.9,
+    pctdistance= 1.2,
+)
+ax.legend(labels = ["Casual", "Registered"])
+st.pyplot(fig)
 
-with col1:
-    fig, ax = plt.subplots(figsize = (7, 5))
-    ax.pie(
-        user,
-        autopct='%1.1f%%',
-        colors = ["#000080", "#32CD32"],
-        radius = 0.9,
-        pctdistance= 1.2,
-    )
-    ax.legend(labels = ["Casual", "Registered"])
-    st.pyplot(fig)
-
-with col2:
-    fig, ax = plt.subplots(figsize = (20, 5))
-    ax.plot(
-        monthly_df_daily["period"],
-        monthly_df_daily["registered"],
-        marker = ".",
-        label = "Registered",
-        color = "limegreen"
-    )
-    ax.plot(
-        monthly_df_daily["period"],
-        monthly_df_daily["casual"],
-        marker = ".",
-        label = "Casual",
-        color = "navy"
-    )
-    st.pyplot(fig)
+fig, ax = plt.subplots(figsize = (15, 5))
+ax.plot(
+    monthly_df_daily["period"],
+    monthly_df_daily["registered"],
+    marker = ".",
+    label = "Registered",
+    color = "limegreen"
+)
+ax.plot(
+    monthly_df_daily["period"],
+    monthly_df_daily["casual"],
+    marker = ".",
+    label = "Casual",
+    color = "navy"
+)
+st.pyplot(fig)
 
 # Question 2
 st.subheader('Weather and User Relationship')
