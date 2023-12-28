@@ -174,6 +174,9 @@ with st.sidebar:
         value=[min_date, max_date]
     )
 
+width = st.sidebar.slider("plot width", 1, 25, 1)
+height = st.sidebar.slider("plot height", 1, 25, 1)
+
 main_df = df_hourly[(df_hourly["dteday"] >= str(start_date)) &
                 (df_hourly["dteday"] <= str(end_date))]
 
@@ -256,7 +259,7 @@ plt.xlabel(None)
 plt.ylabel(None)
 st.pyplot(fig)
 
-plt.figure(figsize = (10, 5))
+plt.figure(figsize = (width, height))
 sns.barplot(
     y = "total",
     x = "atemp_celcius",
