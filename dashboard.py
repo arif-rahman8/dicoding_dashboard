@@ -204,6 +204,7 @@ ax.pie(
     radius = 0.9,
     pctdistance= 1.2,
 )
+ax.set_title("Casual vs Registered", loc = 'center', fontsize = 18)
 ax.legend(labels = ["Casual", "Registered"])
 st.pyplot(fig)
 
@@ -222,6 +223,8 @@ ax.plot(
     label = "Casual",
     color = "navy"
 )
+ax.set_title("Total Number of User by Month (2011-2012)", loc = "left", fontsize = 18)
+ax.set_xticklabels(monthly_df_daily["period"], rotation = 60)
 st.pyplot(fig)
 
 # Question 2
