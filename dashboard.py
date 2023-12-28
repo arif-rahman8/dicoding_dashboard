@@ -393,7 +393,7 @@ with col2:
         palette = color,
         width = 0.5
     )
-    ax.set_xlabel("Holiday")
+    ax.set_xlabel("Weekend")
     ax.set_ylabel(None)
     ax.set_title("Average Number of User During Weekend", loc = "left", fontsize = 15)
     ax.set_yticks(np.arange(0, 4500, 500))
