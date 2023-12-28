@@ -204,10 +204,7 @@ ax.pie(
     radius = 0.9,
     pctdistance= 1.2,
 )
-ax.legend(labels = ["Casual", "Registered"])
-ax.title("Casual vs Registered", loc = 'center', fontsize = 18)
-
-st.pyplot(ax)
+st.pyplot(fig)
 
 fig, ax = plt.subplots(figsize = (15, 5))
 ax.plot(
