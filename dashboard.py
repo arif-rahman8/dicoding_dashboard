@@ -206,7 +206,7 @@ st.subheader('User: Casual vs Registered')
 label = ["Casual", "Registered"]
 color = ["#000080", "#32CD32"]
 
-fig , ax = plt.subplots(figsize = (10, 5))
+fig, ax = plt.subplots(figsize = (10, 5))
 ax.pie(
     user,
     autopct='%1.1f%%',
@@ -219,7 +219,7 @@ ax.title("Casual vs Registered", loc = 'center', fontsize = 18)
 
 st.pyplot(fig)
 
-fig , ax = plt.subplots(figsize = (10, 5))
+fig, ax = plt.subplots(figsize = (10, 5))
 ax.figure(figsize = (15, 5))
 ax.plot(
     monthly_df_daily["period"],
