@@ -264,7 +264,7 @@ with col2:
     st.pyplot(fig)
 
 with col3:
-    plt.figure(figsize = (width, height))
+    fig, ax = plt.subplots(figsize = (10, 5))
     sns.barplot(
         y = "total",
         x = "atemp_celcius",
