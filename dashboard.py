@@ -210,7 +210,6 @@ with col1:
         radius = 0.9,
         pctdistance= 1.2,
     )
-    ax.set_title("Casual vs Registered", loc = 'center', fontsize = 18)
     ax.legend(labels = ["Casual", "Registered"])
     st.pyplot(fig)
 
@@ -234,6 +233,7 @@ with col2:
     ax.set_xticklabels(monthly_df_daily["period"], rotation = 60)
     st.pyplot(fig)
 
+st.markdown("Berdasarkan data dan visualisasi, dapat dilihat bahwa jumlah pengguna sepeda rental yang berlangganan mendominasi sebesar > 80% pada visualisasi pie chart. Lalu, dari line chart berjudul "Total Number of User by Month (2011-2012)" tren jumlah pengguna sepeda rental yang berlangganan cenderung meningkat dari tahun ke tahun, namun ada bulan-bulan tertentu dimana pengguna sepeda rental berlangganan mengalami penurunan, yaitu di bulan November - Januari, yang dimana akan dilakukan analisis pada pertanyaan kedua. Apabila kita melihat tren pengguna sepeda rental casual, tidak terlihat tren peningkatan pengguna yang signifikan, namun polanya mirip dengan pengguna sepeda berlangganan, mengalami penurunan pada bulan tertentu, yaitu November-Januari.")
 
 # Question 2
 st.subheader('Weather and User Relationship')
